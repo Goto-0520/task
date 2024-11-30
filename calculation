@@ -119,8 +119,7 @@ def mode1(result):
             return result, False
         else:
             print("無効な入力です")
-            
-        return result, True
+            return result, True
 
 def main(test_mode=False):
     result = 0  # 計算結果を入れるもの　初期値は０
