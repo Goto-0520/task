@@ -13,9 +13,10 @@ Ubuntu 20.04以降
 
 以下の手順でプロジェクトをローカル環境にインストールしてください。
 
-```bash
 リポジトリをクローン
 git clone https://github.com/username/repository.git
+
+```bash
 
 ディレクトリに移動
 cd repository
