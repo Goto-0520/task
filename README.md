@@ -1,6 +1,7 @@
 # 
 
 ## 必要なソフトウェア
+https://github.com/OWNER/REPOSITORY/actions/workflows/WORKFLOW-FILE/badge.svg
 Python
 テスト済み3.7~3.10
 
