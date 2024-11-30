@@ -1,0 +1,53 @@
+#!/bin/bash
+# SPDX-FileCopyrightText: 2024 Goto Shingo
+# SPDX-License-Identifier: BSD-3-Clause
+
+#!/bin/bash
+
+# スクリプトのパス
+SCRIPT_PATH="./calculation"
+
+# テストケース関数
+run_test() {
+    local test_name="$1"
+    local input="$2"
+    local expected_output="$3"
+
+    echo "Running test: $test_name"
+    
+    # スクリプトにテスト入力を渡す
+    result=$(echo -e "$input" | python3 "$SCRIPT_PATH")
+    
+    # 出力に期待される文字列が含まれているか確認
+    if echo "$result" | grep -q "$expected_output"; then
+        echo "✅ $test_name: PASSED"
+    else
+        echo "❌ $test_name: FAILED"
+        echo "Expected output to contain: $expected_output"
+        echo "Actual output: $result"
+    fi
+    echo "---"
+}
+
+# テストケース1: 通常の四則演算
+run_test "Normal Addition" "c\nn\n+\n5\nc\nn\n+\n3\nq" "結果: 8"
+
+# テストケース2: 通常の減算
+run_test "Normal Subtraction" "c\nn\n+\n10\nc\nn\n-\n4\nq" "結果: 6"
+
+# テストケース3: 通常の乗算
+run_test "Normal Multiplication" "c\nn\n+\n5\nc\nn\n*\n3\nq" "結果: 15"
+
+# テストケース4: 通常の除算
+run_test "Normal Division" "c\nn\n+\n10\nc\nn\n/\n2\nq" "結果: 5.0"
+
+# テストケース5: リセット機能
+run_test "Reset Functionality" "c\nn\n+\n5\nr\nn\n+\n3\nq" "結果: 3"
+
+# ゼロ除算のテスト
+run_test "Division by Zero" "c\nn\n/\n0\nq" "0で割ることはできません"
+
+# 無効な入力のテスト
+run_test "Invalid Input" "x\nq" "無効な入力です"
+
+echo "All tests completed!"
