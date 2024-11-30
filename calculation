@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import sys
 import math
-from math import sin, cos, tan
 
 def trigonometric(result):
     while True:
@@ -115,8 +114,8 @@ def mode1(result):
             print("結果をリセットしました")
             result, _ = mode2(result)
         elif mode == 'q':
-            
             return result, False
+
         else:
             print("無効な入力です")
             return result, True
