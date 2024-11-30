@@ -1,0 +1,134 @@
+#!/usr/bin/python3
+import sys
+import math
+from math import sin, cos, tan
+
+def trigonometric(result):
+    while True:
+        print("選択してください (+, -, *, /)") #演算子を選択
+        math_operator = input().strip()
+
+        if math_operator not in ['+', '-', '*', '/']:#演算子エラー
+            print("無効な演算子です")
+            return result, False
+
+        print("選択してください (s: sin, c: cos, t: tan)")#三角関数選択
+        trig_operator = input().strip()
+        
+        if trig_operator not in ['s', 'c', 't']:#三角関数エラー
+            print("無効な演算子です")
+            return result, False
+        
+        try:
+            angle = float(input("角度を入力してください: "))#角度入力
+            if trig_operator == 's':
+                num = math.sin(math.radians(angle))
+            elif trig_operator == 'c':
+                num = math.cos(math.radians(angle))
+            elif trig_operator == 't':
+                num = math.tan(math.radians(angle))
+        
+        except ValueError:#入力エラー
+            print("無効な入力です")
+            return result, False
+
+        try:#計算
+            if math_operator == '+':
+                result += num
+            elif math_operator == '-':
+                result -= num
+            elif math_operator == '*':
+                result *= num
+            elif math_operator == '/':
+                if num == 0:
+                    print("0で割ることはできません")
+                    return result, False
+                result /= num
+
+            return result, True
+
+        except Exception as e:#逃げ道
+            print(f"エラーが発生しました: {e}")
+            return result, False
+
+def normal(result):
+    while True:
+        print("選択してください (+, -, *, /)") #演算子を選択
+        math_operator = input().strip()
+
+        if math_operator not in ['+', '-', '*', '/']:#演算子エラー
+            print("無効な演算子です")
+            return result, False
+
+        try:#数値入力
+            num = float(input("数値を入力してください: "))
+
+        except ValueError:#入力エラー
+            print("無効な入力です")
+            return result, False
+
+        try:#計算
+            if math_operator == '+':
+                result += num
+            elif math_operator == '-':
+                result -= num
+            elif math_operator == '*':
+                result *= num
+            elif math_operator == '/':
+                if num == 0:
+                    print("0で割ることはできません")
+                    return result, False
+                result /= num
+
+            return result, True
+
+        except Exception as e:#逃げ道
+            print(f"エラーが発生しました: {e}")
+            return result, False
+
+def mode2(result):
+    while True:
+        print("選択してください (t: 三角関数, n: 四則演算)")
+        math_type = input().strip()
+        
+        if math_type not in ['t', 'n']:
+            print("無効な演算子です")
+            return result, False
+        
+        if math_type == 't':
+            result, _ = trigonometric(result)
+        elif math_type == 'n':
+            result, _ = normal(result)
+        
+        return result, True
+
+def mode1(result):
+    while True:
+        print(f"結果: {result}")
+        print("選択してください (c: 計算を続ける, r: 計算をやり直す, q: 終了): ")
+        mode = input().strip()
+        
+        if mode == 'c':
+            result, _ = mode2(result)
+        elif mode == 'r':
+            result = 0
+            print("結果をリセットしました")
+            result, _ = mode2(result)
+        elif mode == 'q':
+            print(f"最終結果: {result}")
+            return result, False
+        else:
+            print("無効な入力です")
+            
+        return result, True
+
+def main():
+    result = 0 #計算結果を入れるもの　初期値は０
+    while True:
+        result, continue_calc = mode1(result)#def mode1()へ
+        if not continue_calc:
+            break
+    print(f"結果: {result}")#計算結果
+
+if __name__ == "__main__":
+    main()
