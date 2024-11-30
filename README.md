@@ -21,7 +21,7 @@ Python
 
 リポジトリをクローン
 ```bash
-git clone 
+git clone https://github.com/Goto-0520/task.git
 ```
 
 ディレクトリに移動
