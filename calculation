@@ -126,16 +126,13 @@ def main(test_mode = False):
     try:
         while True:
             result, _ = mode1(result)  # def mode1()へ
-            if not test_mode:
+            if not continue_calc or (not test_mode and continue_calc):
                 break
         print(f"結果: {result}")
         return result
-    except EOFError:
-        # テストモード時にEOFが発生した場合
-        if test_mode:
-            return result
-        else:
-            raise
+    except Exception as e:
+        print(f"予期せぬエラーが発生しました: {e}")
+        return result
 
 # メイン実行部分を修正
 if __name__ == "__main__":
