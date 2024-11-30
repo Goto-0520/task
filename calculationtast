@@ -14,7 +14,7 @@ test_reset_calculation() {
 }
 
 test_invalid_operator() {
-	local result=$(echo -e "x\nq" | python3 calculation | grep "無効な入力です" | wc -l)
+    local result=$(echo -e "x\nq" | python3 calculation | grep "無効な入力です" | wc -l)
     [[ "$result" -gt 0 ]] && return 0 || return 1
 }
 

@@ -121,12 +121,12 @@ def mode1(result):
             print("無効な入力です")
             return result, True
 
-def main(test_mode=False):
+def main(test_mode = False):
     result = 0  # 計算結果を入れるもの　初期値は０
     try:
         while True:
-            result, continue_calc = mode1(result)  # def mode1()へ
-            if not continue_calc or (test_mode and continue_calc):
+            result, _ = mode1(result)  # def mode1()へ
+            if not test_mode:
                 break
         print(f"結果: {result}")
         return result
