@@ -13,22 +13,32 @@ Ubuntu 20.04以降
 
 以下の手順でプロジェクトをローカル環境にインストールしてください。
 
-```bash
+
 リポジトリをクローン
-git clone https://github.com/username/repository.git
+```bash
+git clone 
+```
 
 ディレクトリに移動
-cd repository
+```bash
+cd task
+```
 
 依存関係をインストール
-pip install -r requirements.txt```
+```bash
+chmod +x calculation
+```
 
 実行方法
 
+```bash
+
 ./calculation
 
-実行結果例
+```
 
+実行結果例
+```bash
 結果: 0
 選択してください (c: 計算を続ける, r: 計算をやり直す, q: 終了):
 c
