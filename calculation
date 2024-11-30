@@ -86,14 +86,7 @@ def normal(result):
             print(f"エラーが発生しました: {e}")
             return result, False
 
-def mode2(result):Traceback (most recent call last):
-  File "calculation", line 142, in <module>
-    main()
-  File "calculation", line 128, in main
-    result, _ = mode1(result)  # def mode1()へ
-  File "calculation", line 109, in mode1
-    mode = input().strip()
-EOFError: EOF when reading a line
+def mode2(result):
     while True:
         print("選択してください (t: 三角関数, n: 四則演算)")
         math_type = input().strip()
