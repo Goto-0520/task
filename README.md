@@ -1,5 +1,5 @@
 # 
-![status]()
+![status](https://github.com/Goto-0520/task/actions/workflows/test.yml/badge.svg)
 <img src="https://img.shields.io/badge/-Python-F9DC3E.svg?logo=python">
 ![Python version](https://img.shields.io/badge/Needed_Python_version-3_or_more-blue)
 
